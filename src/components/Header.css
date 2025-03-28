@@ -2,6 +2,7 @@ header {
    background-image: url("../camo-img.png");
    padding-left: 30px;
    margin-top: 0px;
+   flex-grow: 1;
 }
 h1 {
    text-align: left;
