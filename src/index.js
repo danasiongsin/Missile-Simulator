@@ -9,15 +9,13 @@ import Part1 from './pages/Part1';
 const rootPath = process.env.PUBLIC_URL;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App>
-      <BrowserRouter>
-        <Routes>
-          <Route path={rootPath} element={<Part1/>}/>
-        </Routes>
-      </BrowserRouter>
-    </App>
-  </React.StrictMode>
+  <App>
+    <BrowserRouter>
+      <Routes>
+        <Route path={rootPath} element={<Part1/>}/>
+      </Routes>
+    </BrowserRouter>
+  </App>
 );
 
 // If you want to start measuring performance in your app, pass a function
