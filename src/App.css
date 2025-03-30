@@ -26,3 +26,35 @@
     transform: rotate(360deg);
   }
 }
+
+.playbutton {
+    background: transparent;
+    position: absolute;
+    right: 10px;
+    top: 18%;
+    /* padding: 10px; */
+    border: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.playbutton:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+  background: rgb(235, 235, 235);
+  border-radius: 5px;
+}
+
+.dist {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 250px;
+  height: 50px;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.stats-list {
+  list-style: none;
+  padding-left: 5px;
+}
