@@ -5,14 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import Part1 from './pages/Part1';
+import Part2 from './pages/Part2';
+import Part3 from './pages/Part3';
 
 const rootPath = process.env.PUBLIC_URL;
 const root = ReactDOM.createRoot(document.getElementById('root'));
+console.log(rootPath);
 root.render(
   <App>
     <BrowserRouter>
       <Routes>
         <Route path={rootPath} element={<Part1/>}/>
+        <Route path={`${rootPath}/part2`} element={<Part2/>}/>
+        <Route path={`${rootPath}/part3`} element={<Part3/>}/>
       </Routes>
     </BrowserRouter>
   </App>
