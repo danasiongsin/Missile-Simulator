@@ -27,6 +27,11 @@ function getClickDistance(clickLocation, clickTime, eqs) {
     return milesPerPixel * distance(clickLocation[0], clickLocation[1], missileLocation[0], missileLocation[1]);
 }
 
+function getMilesPerPixel(eqs) {
+    const [x, y, root, peak] = eqs;
+    return 400 / (root - x(0));
+}
+
 const travelTimeSeconds = 20;
 
-export { randomLaunch, travelTimeSeconds, getClickDistance };
+export { randomLaunch, travelTimeSeconds, getClickDistance, getMilesPerPixel};

@@ -7,16 +7,17 @@ import '../App.css';
 
 function Part1() {
     const [playState, setPlayState] = useState('stopped');
-    const { missile, distance } = MissileSimulation(playState, setPlayState);
+    const [startTime, setStartTime] = useState(null);
+    const { missile, distance } = MissileSimulation(playState, setPlayState, startTime, setStartTime);
 
     const handlePlay = (e) => {
-        setPlayState('running');
+        setPlayState('running_1');
         e.stopPropagation();
     };
 
     return (
         <>
-            {missile && (
+            {missile.map(missile =>
                 <Missile
                     style={{
                         position: 'absolute',
