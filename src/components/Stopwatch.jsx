@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Stopwatch({ startTime }) {
     const [time, setTime] = useState(0);
-    setInterval(() => {
-        setTime(Date.now() - startTime);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTime(Date.now() - startTime);
+        }, 10);
+
+        return () => {
+            clearInterval(interval);
+        };
     }
-    , 10);
+    , [startTime]);
     return (
         <div className="stopwatch">
             <span>{ new Date(time).toISOString().slice(11, -1) }</span>
