@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Missile-Simulator/static/css/main.ba7830cd.css",
-    "main.js": "/Missile-Simulator/static/js/main.f444289a.js",
+    "main.css": "/Missile-Simulator/static/css/main.9adb9413.css",
+    "main.js": "/Missile-Simulator/static/js/main.ddebb599.js",
     "static/js/453.34432160.chunk.js": "/Missile-Simulator/static/js/453.34432160.chunk.js",
     "static/media/camo-img.png": "/Missile-Simulator/static/media/camo-img.925b400447f74efbc822.png",
     "index.html": "/Missile-Simulator/index.html",
-    "main.ba7830cd.css.map": "/Missile-Simulator/static/css/main.ba7830cd.css.map",
-    "main.f444289a.js.map": "/Missile-Simulator/static/js/main.f444289a.js.map",
+    "main.9adb9413.css.map": "/Missile-Simulator/static/css/main.9adb9413.css.map",
+    "main.ddebb599.js.map": "/Missile-Simulator/static/js/main.ddebb599.js.map",
     "453.34432160.chunk.js.map": "/Missile-Simulator/static/js/453.34432160.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba7830cd.css",
-    "static/js/main.f444289a.js"
+    "static/css/main.9adb9413.css",
+    "static/js/main.ddebb599.js"
   ]
 }
