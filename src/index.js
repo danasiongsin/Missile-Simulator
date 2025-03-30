@@ -8,19 +8,17 @@ import Part1 from './pages/Part1';
 import Part2 from './pages/Part2';
 import Part3 from './pages/Part3';
 
-const rootPath = process.env.PUBLIC_URL;
 const root = ReactDOM.createRoot(document.getElementById('root'));
-console.log(rootPath);
 root.render(
-  <App>
-    <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <App>
       <Routes>
-        <Route path={rootPath} element={<Part1/>}/>
-        <Route path={`${rootPath}/part2`} element={<Part2/>}/>
-        <Route path={`${rootPath}/part3`} element={<Part3/>}/>
+        <Route path='/' element={<Part1/>}/>
+        <Route path='/part2' element={<Part2/>}/>
+        <Route path='/part3' element={<Part3/>}/>
       </Routes>
-    </BrowserRouter>
-  </App>
+    </App>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
