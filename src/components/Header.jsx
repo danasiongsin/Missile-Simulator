@@ -12,10 +12,10 @@ function Header() {
                <Link to='/'>Part 1</Link>
             </li>
             <li className="page">
-               <Link to={`part2/`}>Part 2</Link>
+               <Link to='part2'>Part 2</Link>
             </li>
             <li className="page">
-               <Link to={`part3/`}>Part 3</Link>
+               <Link to='part3/'>Part 3</Link>
             </li>
          </ul>
       </header>

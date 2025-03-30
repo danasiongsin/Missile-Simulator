@@ -9,8 +9,10 @@ import Part2 from './pages/Part2';
 import Part3 from './pages/Part3';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootPath = process.env.PUBLIC_URL;
+console.log(rootPath);
 root.render(
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <BrowserRouter basename={rootPath}>
     <App>
       <Routes>
         <Route path='/' element={<Part1/>}/>
