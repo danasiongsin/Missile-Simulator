@@ -13,8 +13,6 @@ function randomLaunch() {
     const x = (t) => launchLoc[0] + (root - launchLoc[0]) * (t / (10**3) / travelTimeSeconds);
     const y = (t) => launchLoc[1] + vyInitial * t / (10**3) - 0.5 * 9.8 * (t / 10**3) ** 2;
 
-    console.log(`root: ${root}, peak: ${peak}`);
-
     return [x, y, root, peak];
 }
 
