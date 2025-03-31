@@ -94,6 +94,10 @@
   border-radius: 5px;
 }
 
-.input-box {
-  
+.red-dot {
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
 }
