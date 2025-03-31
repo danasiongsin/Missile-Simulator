@@ -90,16 +90,6 @@ body {
   border-radius: 5px;
 }
 
-.stopwatch {
-  font-family: 'Orbitron', sans-serif;
-  position: absolute;
-  bottom: 60px;
-  right: 20px;
-  border: 1px solid black;
-  padding: 5px;
-  border-radius: 5px;
-}
-
 .inactive {
   width: 5px;
   height: 5px;
@@ -136,4 +126,10 @@ body {
   100% {
     box-shadow: 0 0 20px 10px transparent;
   }
+}
+
+.input-box {
+  position: inline-block;
+  width: auto;
+  height: auto;
 }

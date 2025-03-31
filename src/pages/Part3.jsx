@@ -50,11 +50,10 @@ function Part3() {
                 <Playbutton />
             </button>
             <Error distance={distance} decimals={5} />
-            <div>
-                Enter your teamname: <InputBox inputText={teamname} setText={setTeamname}/>
-                Enter your time (ms): <InputBox inputText = {inputTime} setText = {setTime}/>
-                Enter your x-position:<InputBox inputText = {xPos} setText = {setX}/>
-                Enter your y-position: <InputBox inputText = {yPos} setText = {setY}/>
+            <div style={{ paddingTop: '10px', paddingLeft: '10px' }}>
+                Teamname: <InputBox inputText={teamname} setText={setTeamname}/><br/>
+                Enter your time (ms): <InputBox inputText = {inputTime} setText = {setTime}/><br/>
+                Enter your x and y positions: (<InputBox inputText = {xPos} setText = {setX}/>, <InputBox inputText = {yPos} setText = {setY}/>)
             </div>
             <Laser state = {playState} time = {inputTime} bottom={yPos} left={xPos}/>
         </>

@@ -51,8 +51,8 @@ function Part2() {
             </button>
             <Error distance={distance} />
             <Stopwatch startTime={startTime} playState={playState} />
-            <div>
-                Enter your teamname: <InputBox inputText={text} setText={setText}/>
+            <div style={{ paddingTop: '10px', paddingLeft: '10px' }}>
+                Teamname: <InputBox inputText={text} setText={setText}/>
             </div>
             <CursorLocation />
         </>
