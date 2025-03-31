@@ -25,26 +25,26 @@ function Part3() {
     return (
         <>
             {missile.map(missile =>
-                <>
-                    <Missile
-                        style={{
-                            position: 'absolute',
-                            bottom: `${missile.y}px`,
-                            left: `${missile.x}px`,
-                            transform: missile.transform,
-                            opacity: missile.opacity,
-                        }}
-                    />
-                    <MissileStats
-                        missile={missile}
-                        style={{
-                            position: 'absolute',
-                            bottom: `${missile.y}px`,
-                            left: `${missile.x}px`,
-                            transform: 'translate(50px,50%)',
-                        }}
-                    />
-                </>
+                <Missile
+                    style={{
+                        position: 'absolute',
+                        bottom: `${missile.y}px`,
+                        left: `${missile.x}px`,
+                        transform: missile.transform,
+                        opacity: missile.opacity,
+                    }}
+                />
+            )}
+            {missile.slice(0, 3).map(missile =>
+                <MissileStats
+                    missile={missile}
+                    style={{
+                        position: 'absolute',
+                        bottom: `${missile.y}px`,
+                        left: `${missile.x}px`,
+                        transform: 'translate(50px,50%)',
+                    }}
+                />
             )}
             <button className="playbutton" onClick={(e) => handlePlay(e)}>
                 <Playbutton />
