@@ -50,7 +50,10 @@ function Part2() {
             </button>
             <Error distance={distance} />        
             <Stopwatch startTime={startTime} playState={playState} />
-            <InputBox inputText = {text} setText = {setText}/>
+            <div>
+                Enter your teamname: <InputBox inputText = {text} setText = {setText}/>
+            </div>
+            
         </>
     );
 }
