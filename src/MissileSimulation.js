@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { randomLaunch, getClickDistance, travelTimeSeconds, getMilesPerPixel } from './Calculations';
 
-export function MissileSimulation(playState, setPlayState, startTime, setStartTime, seed) {
+export function MissileSimulation(playState, setPlayState, startTime, setStartTime, seed, inputTime, xPos, yPos) {
     const [path, setPath] = useState([null, null, null, null]);
     const [distance, setDistance] = useState(null);
     const [missile, setMissile] = useState([]);
@@ -20,7 +20,7 @@ export function MissileSimulation(playState, setPlayState, startTime, setStartTi
         if (playState.startsWith('running')) resetSimulation();
     }, [playState]);
 
-    const moveMissile = (missile, time, opacity = 1) => {
+    const moveMissile = (time, opacity = 1) => {
         const [x, y] = path;
         if (typeof x !== 'function' || typeof y !== 'function') return;
 
@@ -51,10 +51,19 @@ export function MissileSimulation(playState, setPlayState, startTime, setStartTi
         if (path.includes(null) || !(playState.startsWith('running'))) return;
 
         if (missile.length === 0) {
-            moveMissile(missile, 0);
+            moveMissile(0);
         }
-        const timer1 = setTimeout(() => moveMissile(missile, time2), time2);
-        const timer2 = setTimeout(() => moveMissile(missile, time3), time3);
+        const timer1 = setTimeout(() => moveMissile(time2), time2);
+        let timer2;
+        if (playState === 'running_3') {
+            timer2 = setTimeout(() => {
+                moveMissile(time3);
+                setPlayState('stopped');
+            }
+            , time3);
+        } else {
+            timer2 = setTimeout(() => moveMissile(time3), time3);
+        }
 
         return () => {
             clearTimeout(timer1);
@@ -64,10 +73,10 @@ export function MissileSimulation(playState, setPlayState, startTime, setStartTi
 
     useEffect(() => {
         if (path.includes(null)) return;
+        if (playState === 'running_3') return;
 
         const handleClick = (e) => {
             if (!playState.startsWith('running')) return;
-            if (playState === 'running_3') return;
             const clickLocation = [e.clientX, window.innerHeight - e.clientY];
             const clickTime = Date.now();
             if (clickTime - startTime < time3) return;
@@ -76,7 +85,7 @@ export function MissileSimulation(playState, setPlayState, startTime, setStartTi
             const clickDist = getClickDistance(clickLocation, clickTime - startTime, [x, y, root, peak]);
 
             setDistance(clickDist);
-            moveMissile(missile, clickTime - startTime, 0.5);
+            moveMissile(clickTime - startTime, 0.5);
 
             setPlayState('stopped');
         };
@@ -84,6 +93,23 @@ export function MissileSimulation(playState, setPlayState, startTime, setStartTi
         window.addEventListener('click', handleClick);
         return () => window.removeEventListener('click', handleClick);
     }, [path, playState]);
+
+    useEffect(() => {
+        if (path.includes(null)) return;
+
+        if (playState === 'running_3' && parseInt(inputTime) >= time3 + 500) {
+            setTimeout(() => {
+                const [x, y, root, peak] = path;
+                const clickDist = getClickDistance([xPos, yPos], parseInt(inputTime), [x, y, root, peak]);
+
+                setDistance(clickDist);
+                moveMissile(parseInt(inputTime), 0.5);
+
+                setPlayState('stopped');
+            }, parseInt(inputTime));
+        }
+    }
+    , [path, playState]);
 
     return { missile, distance };
 }

@@ -4,7 +4,6 @@ import Error from '../components/Error';
 import { MissileSimulation } from '../MissileSimulation';
 import React, { useState } from 'react';
 import Playbutton from '../components/Playbutton';
-import Stopwatch from '../components/Stopwatch';
 import '../App.css';
 import InputBox from '../components/InputBox';
 
@@ -15,14 +14,12 @@ function Part3() {
     const [teamname, setTeamname] = useState("");
     const [xPos, setX] = useState("");
     const [yPos, setY] = useState("");
-    const { missile, distance } = MissileSimulation(playState, setPlayState, startTime, setStartTime, teamname);
+    const { missile, distance } = MissileSimulation(playState, setPlayState, startTime, setStartTime, teamname, inputTime, xPos, yPos);
 
     const handlePlay = (e) => {
         setPlayState('running_3');
         e.stopPropagation();
     };
-
-    // console.log(missile);
 
     return (
         <>
@@ -51,7 +48,7 @@ function Part3() {
             <button className="playbutton" onClick={(e) => handlePlay(e)}>
                 <Playbutton />
             </button>
-            <Error distance={distance} />
+            <Error distance={distance} decimals={5} />
             <div>
                 Enter your teamname: <InputBox inputText={teamname} setText={setTeamname}/>
                 Enter your time (ms): <InputBox inputText = {inputTime} setText = {setTime}/>

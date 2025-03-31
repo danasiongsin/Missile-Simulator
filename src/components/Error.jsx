@@ -1,7 +1,7 @@
-const Error = ({ distance }) => {
+const Error = ({ distance, decimals=2 }) => {
     return (
         <div className="error">
-            Error: {distance?.toFixed(2) || '____'} miles
+            Error: {distance?.toFixed(decimals) || '____'} miles { distance && distance < 0.00001 ? '✅' : '❌' }
         </div>
     );
 }

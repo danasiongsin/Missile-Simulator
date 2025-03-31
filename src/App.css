@@ -1,6 +1,12 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
 .App {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -95,5 +101,5 @@
 }
 
 .input-box {
-  
+
 }
