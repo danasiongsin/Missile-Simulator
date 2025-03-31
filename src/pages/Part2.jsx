@@ -47,7 +47,7 @@ function Part2() {
                 <Playbutton />
             </button>
             <Error distance={distance} />
-            <Stopwatch startTime={startTime} />
+            <Stopwatch startTime={startTime} playState={playState} />
         </>
     );
 }
