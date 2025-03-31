@@ -1,13 +1,13 @@
-import { type } from "@testing-library/user-event/dist/type";
-
-function mulberry32(seed) { console.log(seed);
+function mulberry32(seed) {
     return function() {
-        seed = (seed + 0x6D2B79F5) | 0;
-        let t = seed ^ seed >>> 15;
-        t = (t + (t ^ 0x6B7A7C5) << 10) | 0;
-        t = (t + (t ^ 0xB4D9E9B) >>> 7) | 0;
-        return (t >>> 0) / 4294967296;
-    }
+        seed = (seed + 0x6D2B79F5) | 0;  // Ensure 32-bit integer overflow behavior
+        let t = seed ^ (seed >>> 15);
+        t = Math.imul(t, 0x2C1B3C6D);    // Ensures better bit mixing
+        t ^= (t >>> 12);
+        t = Math.imul(t, 0x297A2D39);
+        t ^= (t >>> 15);
+        return (t >>> 0) / 4294967296;   // Normalize to [0,1)
+    };
 }
 
 function stringToHash(str) {
