@@ -7,6 +7,7 @@ import Playbutton from '../components/Playbutton';
 import Stopwatch from '../components/Stopwatch';
 import '../App.css';
 import InputBox from '../components/InputBox';
+import CursorLocation from '../components/CursorLocation';
 
 function Part2() {
     const [playState, setPlayState] = useState('stopped');
@@ -48,9 +49,10 @@ function Part2() {
             <button className="playbutton" onClick={(e) => handlePlay(e)}>
                 <Playbutton />
             </button>
-            <Error distance={distance} />        
+            <Error distance={distance} />
             <Stopwatch startTime={startTime} playState={playState} />
             <InputBox inputText = {text} setText = {setText}/>
+            <CursorLocation />
         </>
     );
 }

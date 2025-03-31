@@ -1,3 +1,5 @@
+import { type } from "@testing-library/user-event/dist/type";
+
 function mulberry32(seed) { console.log(seed);
     return function() {
         seed = (seed + 0x6D2B79F5) | 0;
@@ -8,16 +10,30 @@ function mulberry32(seed) { console.log(seed);
     }
 }
 
+function stringToHash(str) {
+    let hash = 5381;  // Initial value
+    let i = str.length;
+
+    while (i) {
+        hash = (hash * 33) ^ str.charCodeAt(--i);  // Hash calculation using char codes
+    }
+
+    return hash >>> 0;  // Convert to unsigned 32-bit integer
+}
+
 function randomLaunch(seed) {
+    if (typeof seed === 'string') {
+        seed = stringToHash(seed);
+    }
     const random = mulberry32(seed);
     const launchLoc = [100, 100]
     // get page width and height
     const width = window.innerWidth;
     const height = window.innerHeight;
-    // select random 2nd root from 1.25w to 2.25w
-    const root = Math.floor(random() * width) + 1.25 * width;
-    // select random peak from 0.75h to 1.75h
-    const peak = Math.floor(random() * height) + 0.75 * height;
+    // select random 2nd root from 1.25w to 4w
+    const root = Math.floor(random() * 3 * width) + 1.25 * width;
+    // select random peak from 0.5h to 1.75h
+    const peak = Math.floor(random() * 1.25 * height) + 0.5 * height;
     const vyInitial = 9.8 / 2 * travelTimeSeconds;
 
     // make parametric equaions for x and y
