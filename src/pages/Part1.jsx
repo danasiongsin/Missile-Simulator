@@ -8,7 +8,7 @@ import '../App.css';
 function Part1() {
     const [playState, setPlayState] = useState('stopped');
     const [startTime, setStartTime] = useState(null);
-    const { missile, distance } = MissileSimulation(playState, setPlayState, startTime, setStartTime);
+    const { missile, distance } = MissileSimulation(playState, setPlayState, startTime, setStartTime, startTime);
 
     const handlePlay = (e) => {
         setPlayState('running_1');

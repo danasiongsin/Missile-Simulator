@@ -7,6 +7,7 @@ import Playbutton from '../components/Playbutton';
 import Stopwatch from '../components/Stopwatch';
 import '../App.css';
 import InputBox from '../components/InputBox';
+import CursorLocation from '../components/CursorLocation';
 
 function Part2() {
     const [playState, setPlayState] = useState('stopped');
@@ -24,36 +25,36 @@ function Part2() {
     return (
         <>
             {missile.map(missile =>
-                <>
-                    <Missile
-                        style={{
-                            position: 'absolute',
-                            bottom: `${missile.y}px`,
-                            left: `${missile.x}px`,
-                            transform: missile.transform,
-                            opacity: missile.opacity,
-                        }}
-                    />
-                    <MissileStats
-                        missile={missile}
-                        style={{
-                            position: 'absolute',
-                            bottom: `${missile.y}px`,
-                            left: `${missile.x}px`,
-                            transform: 'translate(50px,50%)',
-                        }}
-                    />
-                </>
+                <Missile
+                    style={{
+                        position: 'absolute',
+                        bottom: `${missile.y}px`,
+                        left: `${missile.x}px`,
+                        transform: missile.transform,
+                        opacity: missile.opacity,
+                    }}
+                />
+            )}
+            {missile.slice(0, 3).map(missile =>
+                <MissileStats
+                    missile={missile}
+                    style={{
+                        position: 'absolute',
+                        bottom: `${missile.y}px`,
+                        left: `${missile.x}px`,
+                        transform: 'translate(50px,50%)',
+                    }}
+                />
             )}
             <button className="playbutton" onClick={(e) => handlePlay(e)}>
                 <Playbutton />
             </button>
-            <Error distance={distance} />        
+            <Error distance={distance} />
             <Stopwatch startTime={startTime} playState={playState} />
             <div>
-                Enter your teamname: <InputBox inputText = {text} setText = {setText}/>
+                Enter your teamname: <InputBox inputText={text} setText={setText}/>
             </div>
-            
+            <CursorLocation />
         </>
     );
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { randomLaunch, getClickDistance, travelTimeSeconds, getMilesPerPixel } from './Calculations';
 
-export function MissileSimulation(playState, setPlayState, startTime, setStartTime, seed=Date.now()) {
+export function MissileSimulation(playState, setPlayState, startTime, setStartTime, seed) {
     const [path, setPath] = useState([null, null, null, null]);
     const [distance, setDistance] = useState(null);
     const [missile, setMissile] = useState([]);
@@ -9,7 +9,6 @@ export function MissileSimulation(playState, setPlayState, startTime, setStartTi
     const time2 = (travelTimeSeconds / 16) * 10**3;
     const time3 = (travelTimeSeconds / 8) * 10**3;
     const delta = 0.001;
-    // console.log(seed);
     const resetSimulation = () => {
         setMissile([]);
         setDistance(null);
@@ -68,6 +67,7 @@ export function MissileSimulation(playState, setPlayState, startTime, setStartTi
 
         const handleClick = (e) => {
             if (!playState.startsWith('running')) return;
+            if (playState === 'running_3') return;
             const clickLocation = [e.clientX, window.innerHeight - e.clientY];
             const clickTime = Date.now();
             if (clickTime - startTime < time3) return;
