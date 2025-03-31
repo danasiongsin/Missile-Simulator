@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react';
 
-function Stopwatch({ startTime }) {
+function Stopwatch({ startTime, playState }) {
     const [time, setTime] = useState(0);
 
     useEffect(() => {
-        const interval = setInterval(() => {
+        let interval;
+        if (playState === 'running_2') {
             setTime(Date.now() - startTime);
-        }, 10);
+            interval = setInterval(() => {
+                setTime(Date.now() - startTime);
+            }, 10);
+        }
 
         return () => {
             clearInterval(interval);
         };
     }
-    , [startTime]);
+    , [startTime, playState]);
     return (
         <div className="stopwatch">
-            <span>{ new Date(time).toISOString().slice(11, -1) }</span>
+            <span style={{ paddingRight: '5px' }}>Time:</span>
+            <span>{ new Date(time).toISOString().slice(14, -1) }</span>
         </div>
     );
 }

@@ -17,7 +17,7 @@ function Part3() {
         e.stopPropagation();
     };
 
-    console.log(missile);
+    // console.log(missile);
 
     return (
         <>

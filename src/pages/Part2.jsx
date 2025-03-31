@@ -11,15 +11,15 @@ import InputBox from '../components/InputBox';
 function Part2() {
     const [playState, setPlayState] = useState('stopped');
     const [startTime, setStartTime] = useState(null);
-    const { missile, distance } = MissileSimulation(playState, setPlayState, startTime, setStartTime);
     const [text, setText] = useState("");
+    const { missile, distance } = MissileSimulation(playState, setPlayState, startTime, setStartTime, text);
 
     const handlePlay = (e) => {
         setPlayState('running_2');
         e.stopPropagation();
     };
 
-    console.log(missile);
+    // console.log(missile);
 
     return (
         <>
@@ -48,8 +48,8 @@ function Part2() {
             <button className="playbutton" onClick={(e) => handlePlay(e)}>
                 <Playbutton />
             </button>
-            <Error distance={distance} />
-            <Stopwatch startTime={startTime} />
+            <Error distance={distance} />        
+            <Stopwatch startTime={startTime} playState={playState} />
             <InputBox inputText = {text} setText = {setText}/>
         </>
     );

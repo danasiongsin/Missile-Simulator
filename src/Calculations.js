@@ -1,12 +1,23 @@
-function randomLaunch() {
+function mulberry32(seed) { console.log(seed);
+    return function() {
+        seed = (seed + 0x6D2B79F5) | 0;
+        let t = seed ^ seed >>> 15;
+        t = (t + (t ^ 0x6B7A7C5) << 10) | 0;
+        t = (t + (t ^ 0xB4D9E9B) >>> 7) | 0;
+        return (t >>> 0) / 4294967296;
+    }
+}
+
+function randomLaunch(seed) {
+    const random = mulberry32(seed);
     const launchLoc = [100, 100]
     // get page width and height
     const width = window.innerWidth;
     const height = window.innerHeight;
     // select random 2nd root from 1.25w to 2.25w
-    const root = Math.floor(Math.random() * width) + 1.25 * width;
+    const root = Math.floor(random() * width) + 1.25 * width;
     // select random peak from 0.75h to 1.75h
-    const peak = Math.floor(Math.random() * height) + 0.75 * height;
+    const peak = Math.floor(random() * height) + 0.75 * height;
     const vyInitial = 9.8 / 2 * travelTimeSeconds;
 
     // make parametric equaions for x and y

@@ -10,7 +10,7 @@ import Part3 from './pages/Part3';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const rootPath = process.env.PUBLIC_URL;
-console.log(rootPath);
+// console.log(rootPath);
 root.render(
   <BrowserRouter basename={rootPath}>
     <App>

@@ -74,6 +74,26 @@
   border-radius: 5px;
 }
 
+.stopwatch {
+  font-family: 'Orbitron', sans-serif;
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.stopwatch {
+  font-family: 'Orbitron', sans-serif;
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .input-box {
   
 }
