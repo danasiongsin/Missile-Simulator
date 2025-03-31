@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import Playbutton from '../components/Playbutton';
 import '../App.css';
 import InputBox from '../components/InputBox';
+import Laser from '../components/Laser';
 
 function Part3() {
     const [playState, setPlayState] = useState('stopped');
@@ -55,6 +56,7 @@ function Part3() {
                 Enter your x-position:<InputBox inputText = {xPos} setText = {setX}/>
                 Enter your y-position: <InputBox inputText = {yPos} setText = {setY}/>
             </div>
+            <Laser time = {inputTime} top={xPos} left={yPos}/>
         </>
     );
 }
