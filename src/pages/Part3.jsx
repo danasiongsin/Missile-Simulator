@@ -6,11 +6,15 @@ import React, { useState } from 'react';
 import Playbutton from '../components/Playbutton';
 import Stopwatch from '../components/Stopwatch';
 import '../App.css';
+import InputBox from '../components/InputBox';
 
 function Part3() {
     const [playState, setPlayState] = useState('stopped');
     const [startTime, setStartTime] = useState(null);
     const { missile, distance } = MissileSimulation(playState, setPlayState, startTime, setStartTime);
+    const [inputTime, setTime] = useState("");
+    const [xPos, setX] = useState("");
+    const [yPos, setY] = useState("");
 
     const handlePlay = (e) => {
         setPlayState('running_2');
@@ -47,6 +51,12 @@ function Part3() {
                 <Playbutton />
             </button>
             <Error distance={distance} />
+            <div>
+                Enter your time (ms): <InputBox inputText = {inputTime} setText = {setTime}/>
+                Enter your x-position:<InputBox inputText = {xPos} setText = {setX}/>
+                Enter your y-position: <InputBox inputText = {yPos} setText = {setY}/>
+            </div>
+            
         </>
     );
 }
