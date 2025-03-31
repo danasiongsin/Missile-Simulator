@@ -56,7 +56,6 @@ function Part3() {
                 Enter your x-position:<InputBox inputText = {xPos} setText = {setX}/>
                 Enter your y-position: <InputBox inputText = {yPos} setText = {setY}/>
             </div>
-            
         </>
     );
 }
