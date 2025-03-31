@@ -100,6 +100,40 @@ body {
   border-radius: 5px;
 }
 
-.input-box {
+.inactive {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  /* border: 2px solid red; */
+  background-color: red;
+  position: absolute;
+  animation: blink 1s infinite;
+}
 
+@keyframes blink {
+  0%, 100% {
+    background-color: red;
+  }
+  50% {
+    background-color: white;
+  }
+}
+
+.active {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  box-shadow: 10px 0 5px red;
+  animation: glow 1s infinite;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px 5px red;
+  }
+  100% {
+    box-shadow: 0 0 20px 10px transparent;
+  }
 }

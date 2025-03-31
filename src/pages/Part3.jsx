@@ -56,7 +56,7 @@ function Part3() {
                 Enter your x-position:<InputBox inputText = {xPos} setText = {setX}/>
                 Enter your y-position: <InputBox inputText = {yPos} setText = {setY}/>
             </div>
-            <Laser time = {inputTime} top={xPos} left={yPos}/>
+            <Laser state = {playState} time = {inputTime} bottom={yPos} left={xPos}/>
         </>
     );
 }

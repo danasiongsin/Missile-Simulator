@@ -54,16 +54,7 @@ export function MissileSimulation(playState, setPlayState, startTime, setStartTi
             moveMissile(0);
         }
         const timer1 = setTimeout(() => moveMissile(time2), time2);
-        let timer2;
-        if (playState === 'running_3') {
-            timer2 = setTimeout(() => {
-                moveMissile(time3);
-                setPlayState('stopped');
-            }
-            , time3);
-        } else {
-            timer2 = setTimeout(() => moveMissile(time3), time3);
-        }
+        const timer2 = setTimeout(() => moveMissile(time3), time3);
 
         return () => {
             clearTimeout(timer1);
